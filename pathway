@@ -1,0 +1,7 @@
+def iter_filenames(folder, mask=''):
+    """ iter over files in folder. Return file name path."""
+    for root, dirs, files in os.walk(folder, topdown=False):
+        for name in files:
+            if re.search(mask, name):
+                apath = os.path.join(root, name)
+                yield apath
